@@ -26,11 +26,14 @@ import math
 import time
 import traceback
 import paddle
+import importlib
 
-import tools.infer.utility as utility
-from ppocr.postprocess import build_post_process
-from ppocr.utils.logging import get_logger
-from ppocr.utils.utility import get_image_file_list, check_and_read
+tools = importlib.import_module('.', 'paddleocr.tools')
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+import paddleocr.tools.infer.utility as utility
+from paddleocr.ppocr.postprocess import build_post_process
+from paddleocr.ppocr.utils.logging import get_logger
+from paddleocr.ppocr.utils.utility import get_image_file_list, check_and_read
 
 logger = get_logger()
 

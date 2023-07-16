@@ -22,7 +22,9 @@ import sys
 __dir__ = os.path.dirname(__file__)
 sys.path.append(__dir__)
 sys.path.append(os.path.join(__dir__, '..'))
-from ppocr.utils.e2e_utils.pgnet_pp_utils import PGNet_PostProcess
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.utils.e2e_utils.pgnet_pp_utils import PGNet_PostProcess
 
 
 class PGPostProcess(object):

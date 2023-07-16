@@ -30,19 +30,19 @@ import base64
 from io import BytesIO
 from PIL import Image
 
-tools = importlib.import_module('.', 'tools')
-ppocr = importlib.import_module('.', 'ppocr')
-ppstructure = importlib.import_module('.', 'ppstructure')
+tools = importlib.import_module('.', 'paddleocr.tools')
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+ppstructure = importlib.import_module('.', 'paddleocr.ppstructure')
 
-from tools.infer import predict_system
-from ppocr.utils.logging import get_logger
+from paddleocr.tools.infer import predict_system
+from paddleocr.ppocr.utils.logging import get_logger
 
 logger = get_logger()
-from ppocr.utils.utility import check_and_read, get_image_file_list
-from ppocr.utils.network import maybe_download, download_with_progressbar, is_link, confirm_model_dir_url
-from tools.infer.utility import draw_ocr, str2bool, check_gpu
-from ppstructure.utility import init_args, draw_structure_result
-from ppstructure.predict_system import StructureSystem, save_structure_res, to_excel
+from paddleocr.ppocr.utils.utility import check_and_read, get_image_file_list
+from paddleocr.ppocr.utils.network import maybe_download, download_with_progressbar, is_link, confirm_model_dir_url
+from paddleocr.tools.infer.utility import draw_ocr, str2bool, check_gpu
+from paddleocr.ppstructure.utility import init_args, draw_structure_result
+from paddleocr.ppstructure.predict_system import StructureSystem, save_structure_res, to_excel
 
 __all__ = [
     'PaddleOCR', 'PPStructure', 'draw_ocr', 'draw_structure_result',
@@ -720,7 +720,7 @@ def main():
 
                 if args.recovery and result != []:
                     from copy import deepcopy
-                    from ppstructure.recovery.recovery_to_doc import sorted_layout_boxes
+                    from paddleocr.ppstructure.recovery.recovery_to_doc import sorted_layout_boxes
                     h, w, _ = img.shape
                     result_cp = deepcopy(result)
                     result_sorted = sorted_layout_boxes(result_cp, w)
@@ -728,7 +728,7 @@ def main():
 
             if args.recovery and all_res != []:
                 try:
-                    from ppstructure.recovery.recovery_to_doc import convert_info_docx
+                    from paddleocr.ppstructure.recovery.recovery_to_doc import convert_info_docx
                     convert_info_docx(img, all_res, args.output, img_name)
                 except Exception as ex:
                     logger.error(

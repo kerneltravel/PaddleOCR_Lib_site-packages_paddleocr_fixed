@@ -22,7 +22,9 @@ import paddle.nn as nn
 import paddle.nn.functional as F
 from paddle.nn.initializer import Normal, XavierNormal
 import numpy as np
-from ppocr.modeling.backbones.rec_resnet_aster import ResNet45
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.modeling.backbones.rec_resnet_aster import ResNet45
 
 
 class PositionalEncoding(nn.Layer):

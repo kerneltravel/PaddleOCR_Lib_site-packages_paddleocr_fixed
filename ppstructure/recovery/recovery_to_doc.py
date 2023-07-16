@@ -22,9 +22,11 @@ from docx.enum.section import WD_SECTION
 from docx.oxml.ns import qn
 from docx.enum.table import WD_TABLE_ALIGNMENT
 
-from ppstructure.recovery.table_process import HtmlToDocx
+from paddleocr.ppstructure.recovery.table_process import HtmlToDocx
 
-from ppocr.utils.logging import get_logger
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.utils.logging import get_logger
 logger = get_logger()
 
 

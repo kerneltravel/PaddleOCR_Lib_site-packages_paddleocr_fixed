@@ -24,7 +24,9 @@ import math
 from paddle import inference
 import time
 import random
-from ppocr.utils.logging import get_logger
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.utils.logging import get_logger
 
 
 def str2bool(v):

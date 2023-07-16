@@ -21,8 +21,9 @@ from .locality_aware_nms import nms_locality
 import cv2
 import paddle
 
-import os
-from ppocr.utils.utility import check_install
+import os,importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.utils.utility import check_install
 import sys
 
 

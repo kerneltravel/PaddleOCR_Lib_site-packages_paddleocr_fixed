@@ -18,7 +18,7 @@ https://github.com/open-mmlab/mmocr/blob/main/mmocr/datasets/pipelines/textdet_t
 
 import cv2
 import numpy as np
-from ppocr.utils.utility import check_install
+from paddleocr.ppocr.utils.utility import check_install
 from numpy.linalg import norm
 
 

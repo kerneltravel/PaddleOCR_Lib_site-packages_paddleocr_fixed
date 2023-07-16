@@ -141,7 +141,9 @@ class SASTPostProcess(object):
 
     def nms(self, dets):
         if self.is_python35:
-            from ppocr.utils.utility import check_install
+            import importlib
+            ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+            from paddleocr.ppocr.utils.utility import check_install
             check_install('lanms', 'lanms-nova')
             import lanms
             dets = lanms.merge_quadrangle_n9(dets, self.nms_thresh)

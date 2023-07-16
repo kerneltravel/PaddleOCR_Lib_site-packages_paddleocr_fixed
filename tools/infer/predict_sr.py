@@ -27,10 +27,13 @@ import time
 import traceback
 import paddle
 
-import tools.infer.utility as utility
-from ppocr.postprocess import build_post_process
-from ppocr.utils.logging import get_logger
-from ppocr.utils.utility import get_image_file_list, check_and_read
+import paddleocr.tools.infer.utility as utility
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+
+from paddleocr.ppocr.postprocess import build_post_process
+from paddleocr.ppocr.utils.logging import get_logger
+from paddleocr.ppocr.utils.utility import get_image_file_list, check_and_read
 
 logger = get_logger()
 

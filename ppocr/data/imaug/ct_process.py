@@ -19,7 +19,9 @@ import pyclipper
 import paddle
 
 import numpy as np
-from ppocr.utils.utility import check_install
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.utils.utility import check_install
 
 import scipy.io as scio
 

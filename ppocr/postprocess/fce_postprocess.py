@@ -20,7 +20,9 @@ import cv2
 import paddle
 import numpy as np
 from numpy.fft import ifft
-from ppocr.utils.poly_nms import poly_nms, valid_boundary
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.utils.poly_nms import poly_nms, valid_boundary
 
 
 def fill_hole(input_mask):

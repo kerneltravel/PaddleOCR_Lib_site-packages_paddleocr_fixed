@@ -22,8 +22,9 @@ import pickle
 import six
 
 import paddle
-
-from ppocr.utils.logging import get_logger
+import importlib
+ppocr = importlib.import_module('.', 'paddleocr.ppocr')
+from paddleocr.ppocr.utils.logging import get_logger
 
 __all__ = ['load_model']
 
